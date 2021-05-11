@@ -16,7 +16,6 @@ routes.post("/customresult", (req, res) => {
     const instructions: string = req.body.specialinstructions as string;
     let price: number = req.body.price;
     
-
     // price
     if (size === 'small') {
         price = 7 + toppingCount * .5
