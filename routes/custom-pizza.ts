@@ -15,6 +15,7 @@ routes.post("/customresult", (req, res) => {
     const gfCrust: boolean = !!req.body.glutenfree;
     const instructions: string = req.body.specialinstructions as string;
     let price: number = req.body.price;
+    
 
     // price
     if (size === 'small') {
@@ -30,7 +31,9 @@ routes.post("/customresult", (req, res) => {
     // Do they get free delivery?
     const freeDelivery: boolean = price >= 15;
 
-    res.render("custom-pizza-result", { size, toppingCount, gfCrust, instructions, price, freeDelivery });
+    const displayPrice: string = price.toFixed(2);
+
+    res.render("custom-pizza-result", { size, toppingCount, gfCrust, instructions, displayPrice, freeDelivery });
   });
 
 
